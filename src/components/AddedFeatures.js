@@ -12,7 +12,7 @@ const AddedFeatures = props => {
 				))}
 				</ol>
 			) : (
-				<p>You can purchase items from the store.</p>
+				<p>No added features yet</p>
 			)}
 		</div>
 	);
