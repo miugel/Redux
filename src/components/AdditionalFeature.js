@@ -1,12 +1,14 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {buyItem} from '../actions/Actions';
 
 const AdditionalFeature = props => {
     return (
         <li>
-            <button className="button" >Add</button>
-            {props.feature.name} (+{props.feature.price})
+            <button className="button" onClick={() => props.buyItem(props.feature)}>Add</button>
+            <p>{props.feature.name}: {props.feature.price}</p>
         </li>
     );
 };
 
-export default AdditionalFeature;
+export default connect(null, {buyItem})(AdditionalFeature);
