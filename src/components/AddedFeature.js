@@ -5,7 +5,8 @@ import {removeFeature} from '../actions/Actions';
 const AddedFeature = props => {
 	return (
 		<li>
-			<button className="button" onClick={() => props.removeFeature(props.feature)}>X {props.feature.name}</button>
+			<button className="button" onClick={() => props.removeFeature(props.feature)}>X</button>
+			{props.feature.name}
 		</li>
 	);
 };

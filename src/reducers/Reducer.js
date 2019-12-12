@@ -27,12 +27,9 @@ export const reducer = (state = initialState, action) => {
                         action.payload
                     ]
                 },
-                // additionalFeatures: [
-                //     state.additionalFeatures.filter(item => {
-                //         console.log('item id', item.id, 'action id', action.payload.id);
-                //         return item.id !== action.payload.id;
-                //     })
-                // ]
+                additionalFeatures: state.additionalFeatures.filter(item => {
+                    return item.id !== action.payload.id;
+                })
             };
 
         case 'REMOVE_FEATURE':
@@ -41,12 +38,14 @@ export const reducer = (state = initialState, action) => {
                 additionalPrice: state.additionalPrice - action.payload.price,
                 car: {
                     ...state.car,
-                    features: [
-                        state.car.features.filter(item => {
-                            return item.id !== action.payload.id;
-                        })
-                    ]
-                }
+                    features: state.car.features.filter(item => {
+                        return item.id !== action.payload.id;
+                    })
+                },
+                additionalFeatures: [
+                    ...state.additionalFeatures,
+                    action.payload
+                ]
             };
 
         default:
